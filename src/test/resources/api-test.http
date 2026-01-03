@@ -1,0 +1,21 @@
+### Create a Course
+POST http://localhost:8099/api/courses
+Content-Type: application/json
+
+{
+  "title": "MERN Stack",
+  "description": "Complete MERN Stack to Deployment"
+}
+
+### Register a Student
+POST http://localhost:8099/api/students
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "city": "Berlin",
+  "version": 0
+}
+
+### Enroll Student in Course
+PUT http://localhost:8099/api/students/1/enroll/1
