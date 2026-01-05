@@ -116,3 +116,60 @@ This project avoids the deprecated `withDefaultPasswordEncoder`. Instead, it use
 - **Validation:** Spring Security handles the secure comparison of hashes during the authentication handshake.
 
 > **Security Tip:** In a production app, these users would be moved from `InMemoryUserDetailsManager` to a database-backed `JdbcUserDetailsManager`.
+
+
+
+## Spring Boot JWT Security Implementation
+
+This repository contains a stateless authentication system using Spring Security and JSON Web Tokens (JWT).
+
+##  Project Components
+
+### Core Classes
+* **`JwtUtil.java`**: Utility for generating, parsing, and validating JWT tokens.
+* **`JwtAuthenticationFilter.java`**: A per-request filter that extracts the JWT from the header and sets the security context.
+* **`AuthRequest.java` & `AuthResponse.java`**: DTOs (Data Transfer Objects) for handling authentication payloads.
+* **`User.java`**: The main user entity containing credentials and roles.
+* **`UserDao.java`**: Repository interface for database persistence.
+* **`CustomUserDetailsService.java`**: Implementation to load user-specific data during authentication.
+* **`AuthController.java`**: REST controller for registration and login endpoints.
+
+### Configuration Files
+* **`pom.xml`**: Includes `jjwt` (version 0.12.6) dependencies.
+* **`SecurityConfig.java`**: Defines the security filter chain, password encoders, and stateless session management.
+* **`application.properties`**: Contains the JWT secret key and expiration settings.
+
+---
+
+### ⚙️ Configuration Details
+
+| Property | Value |
+| :--- | :--- |
+| **JWT Secret** | 256-bit secret key (Change for Production) |
+| **JWT Expiration** | 24 Hours (86,400,000 ms) |
+| **Auth Header** | `Authorization: Bearer <token>` |
+| **Session Policy** | `SessionCreationPolicy.STATELESS` |
+
+---
+
+###  Security Rules
+
+| Endpoint Path | Access Requirement |
+| :--- | :--- |
+| `/api/auth/**` | **Permit All** (Public) |
+| `/api/courses/popular` | **Permit All** (Public) |
+| `/api/students/**` | **ROLE_ADMIN** |
+| `/**` (All others) | **Authenticated** |
+
+---
+
+###  API Usage Guide
+
+#### 1. Register a New User
+**Endpoint:** `POST /api/auth/register`  
+**Payload:**
+```json
+{
+  "username": "user1",
+  "password": "pass123"
+}
