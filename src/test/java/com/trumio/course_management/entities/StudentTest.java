@@ -34,6 +34,7 @@ class StudentTest {
         assertTrue(student.getCourses().isEmpty());
     }
 
+
     @Test
     void testSetAndGetId() {
         student.setId(1L);

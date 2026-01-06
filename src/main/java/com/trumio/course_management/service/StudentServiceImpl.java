@@ -43,4 +43,9 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getStudentsByCourse(String courseTitle) {
         return studentDao.findByCourses_Title(courseTitle);
     }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return studentDao.findAll();
+    }
 }

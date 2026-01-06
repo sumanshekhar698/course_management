@@ -1,0 +1,447 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: course_management
+meta:
+  id: wrk_446d96d5c1ff46ab8bd5cdc1179096c1
+  created: 1767328837119
+  modified: 1767328870632
+  description: ""
+collection:
+  - name: students
+    meta:
+      id: fld_913d5c26bfb94e99ad9df7ddfe0f934d
+      created: 1767329124609
+      modified: 1767329290466
+      sortKey: -1767329124609
+      description: ""
+    children:
+      - url: http://localhost:8099/api/students
+        name: Register Student
+        meta:
+          id: req_af5f5b144ce84b8c9acd3a98d3479452
+          created: 1767329113417
+          modified: 1767424194522
+          isPrivate: false
+          description: ""
+          sortKey: -1767329133784
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "name": "Angelina",
+                "city": "Mexico",
+                "version": 0
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/api/students
+        name: Fetch All Student
+        meta:
+          id: req_835087fc99a8494e8381ea3e045e4681
+          created: 1767663394062
+          modified: 1767683549115
+          isPrivate: false
+          description: ""
+          sortKey: -1767329133734
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdHVkZW50Iiwicm9sZXMiOlsiUk9MRV9TVFVERU5UIl0sImlhdCI6MTc2NzY4MzUzNCwiZXhwIjoxNzY3Njg3MTM0fQ.7lZ1PAJzIEvXe0YYmEMlLctJObVhkPLjrJ-Rp3gTlxMdBelWacdyTsI90g4eV-5C
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: courses
+    meta:
+      id: fld_b745fba8ed3d446caab993e015e31635
+      created: 1767329241034
+      modified: 1767424343878
+      sortKey: -1767329241034
+      description: ""
+    children:
+      - url: http://localhost:8099/api/courses
+        name: CreateCourse
+        meta:
+          id: req_34477760067f4bf2b77f0589264fd928
+          created: 1767328837125
+          modified: 1767657586928
+          isPrivate: false
+          description: ""
+          sortKey: -1767329244358
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "title": "C++",
+                "description": "Master C++ and OOPS"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZWFjaGVyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3Njc2NTc1MDEsImV4cCI6MTc2NzY2MTEwMX0.qrsrl3-fVPd-WLFN5uoPDzB7Asq-eRYvnLEZVeEbMrFXEaa79FoUGU03AGEqORmx
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/api/courses
+        name: Get All Courses
+        meta:
+          id: req_de2ef11fd5e643f59594d865455251cf
+          created: 1767383773407
+          modified: 1767663268805
+          isPrivate: false
+          description: ""
+          sortKey: -1767329244458
+        method: GET
+        headers:
+          - name: accept
+            value: "*/*"
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdHVkZW50Iiwicm9sZXMiOlsiUk9MRV9TVFVERU5UIl0sImlhdCI6MTc2NzY2MzI1OSwiZXhwIjoxNzY3NjY2ODU5fQ.RFFMWLDeEFg5hb0eIDe_eMenK079cAgLTUJrnMtvvFseDVFENiVxTOiPsq0H3-ZX
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: student_courses
+    meta:
+      id: fld_0a09051cc1564f40ac63bc3ccfe6c321
+      created: 1767329311880
+      modified: 1767424244081
+      sortKey: -1767329311880
+      description: ""
+    children:
+      - url: http://localhost:8099/api/students/113/enroll/3
+        name: LinkCourseAndStudent
+        meta:
+          id: req_48e376bfeb7a49ba9afcea0209ce156b
+          created: 1767329315975
+          modified: 1767424291175
+          isPrivate: false
+          description: ""
+          sortKey: -1767329315975
+        method: PUT
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/api/courses/popular
+        name: DefaultPopular
+        meta:
+          id: req_793e48c306e742a2bd41351f5b0f7e6d
+          created: 1767331308713
+          modified: 1767331351891
+          isPrivate: false
+          description: ""
+          sortKey: -1767331308713
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/api/courses/popular?min=2
+        name: CustomPopular
+        meta:
+          id: req_dabeb20afd6a4fbc881cddebec44f4e8
+          created: 1767331364019
+          modified: 1767331368082
+          isPrivate: false
+          description: ""
+          sortKey: -1767330312344
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/api/students/course/Java Frameworks
+        name: GetStudentByTitle
+        meta:
+          id: req_3178650df36645439f3d05a285238b4e
+          created: 1767383103484
+          modified: 1767594521451
+          isPrivate: false
+          description: ""
+          sortKey: -1767330810528.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: actuators
+    meta:
+      id: fld_9bfa5d5b4ebb41a29fb1a48a1ecd575a
+      created: 1767331707148
+      modified: 1767331707148
+      sortKey: -1767331707148
+      description: ""
+    children:
+      - url: http://localhost:8099/actuator/health
+        name: health
+        meta:
+          id: req_f065bbafce674a80aba8e1900ba4afcc
+          created: 1767331711333
+          modified: 1767331797700
+          isPrivate: false
+          description: ""
+          sortKey: -1767331711333
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/actuator/beans
+        name: beans
+        meta:
+          id: req_99209dd71d9743679141944325524dc4
+          created: 1767331803227
+          modified: 1767591892146
+          isPrivate: false
+          description: ""
+          sortKey: -1767331510023
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: apikey
+          key: ""
+          value: ""
+          disabled: false
+          addTo: header
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: swagger
+    meta:
+      id: fld_5a77873bcd8842609427d249872700f3
+      created: 1767424674645
+      modified: 1767683962137
+      sortKey: -1767424674645
+      description: ""
+    children:
+      - url: http://localhost:8099/v3/api-docs
+        name: openi api doc
+        meta:
+          id: req_11d76a70f4174cf996aa361a264971f2
+          created: 1767424680991
+          modified: 1767424747437
+          isPrivate: false
+          description: ""
+          sortKey: -1767424680991
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: auth
+    meta:
+      id: fld_d3e027316e3340f393291933025eb6f4
+      created: 1767655454100
+      modified: 1767683964581
+      sortKey: -1767655454100
+      description: ""
+    children:
+      - url: http://localhost:8099/api/auth/login
+        name: Token Admin
+        meta:
+          id: req_6a4b6067bf5a4bc1b6fe34f19c7e8bba
+          created: 1767655458029
+          modified: 1767683967185
+          isPrivate: false
+          description: ""
+          sortKey: -1767655458029
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "teacher",
+              "password": "admin1234"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: basic
+          useISO88591: false
+          username: ""
+          password: ""
+          disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8099/api/auth/login
+        name: Token Student
+        meta:
+          id: req_efc208363e1b4e61849366e472eab019
+          created: 1767657465183
+          modified: 1767683532780
+          isPrivate: false
+          description: ""
+          sortKey: -1767540069510
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "student",
+              "password": "pass1234"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        authentication:
+          type: basic
+          useISO88591: false
+          username: ""
+          password: ""
+          disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_ee80eebb2873ea49b59eef228c76d4c0ba2a0b40
+    created: 1767328837121
+    modified: 1767683551036
+  cookies:
+    - id: 5ed038e4-1000-4f2c-b74c-e34ae1a1e5b3
+      key: JSESSIONID
+      value: 80D326983B00A5C28B19CC4988023F0A
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: true
+      hostOnly: true
+environments:
+  name: Base Environment
+  meta:
+    id: env_ee80eebb2873ea49b59eef228c76d4c0ba2a0b40
+    created: 1767328837120
+    modified: 1767328837120
+    isPrivate: false

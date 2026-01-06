@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260106-02
+      author: trumio
+      context: dev, qa  # <--- ONLY runs if 'dev' or 'qa' is active
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: "teacher"
+              - column:
+                  name: password
+                  value: "admin123"
+              - column:
+                  name: role
+                  value: "ROLE_ADMIN"
+              - column:
+                  name: enabled
+                  valueBoolean: true
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: "suman"
+              - column:
+                  name: password
+                  value: "pass123"
+              - column:
+                  name: role
+                  value: "ROLE_STUDENT"
+              - column:
+                  name: enabled
+                  valueBoolean: true

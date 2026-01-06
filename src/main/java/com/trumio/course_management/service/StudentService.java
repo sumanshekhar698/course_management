@@ -7,4 +7,5 @@ public interface StudentService {
     Student registerStudent(Student student);
     void enrollStudentInCourse(Long studentId, Long courseId);
     List<Student> getStudentsByCourse(String courseTitle);
+    List<Student> getAllStudents();
 }
