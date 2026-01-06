@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20260107-02
+      author: code-county
+      changes:
+        # 1. Insert Initial Courses
+        - insert:
+            tableName: course
+            columns:
+              - column: { name: title, value: "Core Java" }
+              - column: { name: description, value: "Mastering Enums and Collections" }
+        - insert:
+            tableName: course
+            columns:
+              - column: { name: title, value: "Spring Boot Pro" }
+              - column: { name: description, value: "Building Cloud-Ready Microservices" }
+
+        # 2. Insert Initial Students
+        - insert:
+            tableName: student
+            columns:
+              - column: { name: name, value: "John Doe" }
+              - column: { name: city, value: "New York" }
+              - column: { name: version, value: 0 }
+        - insert:
+            tableName: student
+            columns:
+              - column: { name: name, value: "Jane Smith" }
+              - column: { name: city, value: "London" }
+              - column: { name: version, value: 0 }
+
+        # 3. Map Students to Courses (The Enrollment)
+        # Assuming ID 1 is John/Java and ID 2 is Jane/Spring
+        - insert:
+            tableName: student_course
+            columns:
+              - column: { name: student_id, value: 1 }
+              - column: { name: course_id, value: 1 }
+        - insert:
+            tableName: student_course
+            columns:
+              - column: { name: student_id, value: 2 }
+              - column: { name: course_id, value: 2 }
