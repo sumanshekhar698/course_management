@@ -21,7 +21,7 @@ public class JwtUtils {
     @Value("${app.jwt.secret}")
     private String jwtSecret;
 
-    @Value("${app.jwt.expirationMs:86400000}")
+    @Value("${app.jwt.expiration:86400000}")
     private int jwtExpirationMs;
 
 /*    private Key getSigningKey() {

@@ -49,7 +49,6 @@ public class SecurityBeanConfig {
 
 
         // 2. Use the encoder to hash the passwords
-
         UserDetails admin = User.builder()
                 .username(adminUser)
                 .password(encoder.encode(adminPass))
@@ -66,8 +65,7 @@ public class SecurityBeanConfig {
     }
 
 
-    // You need this bean so your AuthController can perform the login
-
+    // We need this bean so your AuthController can perform the login
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();

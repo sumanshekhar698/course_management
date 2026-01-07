@@ -51,13 +51,12 @@ public class SecurityConfigBasic {
                         ).permitAll()
                         // 2. Role-based rules
                         .requestMatchers("/api/students/**").hasRole("ADMIN")
-
                         // 3. Catch-all - Everything else triggers the Login Popup
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
 
-        return http.build();//Builder Pattern
+        return http.build();
     }
 
 

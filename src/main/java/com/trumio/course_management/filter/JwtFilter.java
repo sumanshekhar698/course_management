@@ -1,4 +1,4 @@
-package com.trumio.course_management.config;
+package com.trumio.course_management.filter;
 
 import com.trumio.course_management.security.JwtUtils;
 import jakarta.servlet.FilterChain;

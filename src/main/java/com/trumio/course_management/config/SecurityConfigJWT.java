@@ -1,5 +1,6 @@
 package com.trumio.course_management.config;
 
+import com.trumio.course_management.filter.JwtFilter;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
@@ -11,6 +12,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -58,10 +60,9 @@ public class SecurityConfigJWT {
     @Bean
     public SecurityFilterChain jwtSecurityFilterChain(HttpSecurity http, JwtFilter jwtFilter) throws Exception {
         http.securityMatcher("/api/**") // <--- THIS IS THE FIX. It limits this chain's scope.
-                .csrf(csrf -> csrf.disable())
+                .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-
                         // 1. Whitelist Swagger and Auth
                         .requestMatchers(
                                 "/api/auth/**"
@@ -70,7 +71,6 @@ public class SecurityConfigJWT {
 //                                "/swagger-resources/**",
 //                                "/webjars/**"
                         ).permitAll()
-
 
                         // 2. Role-Based Access Control
                         // Only ADMINs can touch Student data
